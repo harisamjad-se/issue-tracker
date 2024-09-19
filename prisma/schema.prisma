@@ -14,18 +14,10 @@ datasource db {
 }
 
 model Issue {
-  id        Int      @id @default(autoincrement())
-  title     String
+  id          Int      @id @default(autoincrement())
+  title       String
   description String
-  status    String   @default("Open")
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-}
-
-model User {
-  id        Int      @id @default(autoincrement())
-  name      String
-  email     String   @unique
-  password  String
-  issues    Issue[]  @relation("UserIssues")
+  status      String   @default("Open") // Status: Open, In Progress, Closed
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
 }
